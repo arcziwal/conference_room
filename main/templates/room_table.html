@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Lista sal konferencyjnych</title>
+    <meta name="description" content="Template for conference room reservation website">
+    <meta name="author" content="Artur Waligora">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/style.css' %}">
+</head>
+<body>
+<header>
+    <h1 class="banner">
+        Tutaj będzie baner nagłówka
+    </h1>
+    <nav>
+        <ul class="menu">
+            <li><a href="/">Strona główna</a></li>
+            <li><a href="/rooms">Lista sal</a> </li>
+            <li><a href="/room/new">Dodaj salę</a></li>
+        </ul>
+    </nav>
+</header>
+<section class="table">
+<table class="room-table">
+    <div class="table-head">
+        <thead class="room-table-head">
+            <tr>
+                <td>Nazwa sali</td>
+                <td>Pojemność</td>
+                <td>Dostępność sali</td>
+                <td>Dostępność rzutnika</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </thead>
+    </div>
+    <tbody class="room-table-body">
+        {% for room in rooms %}
+            <tr>
+                <td>{{room.name}}</td>
+                <td>{{room.seats}}</td>
+                <td></td>
+                <td>
+                    {% if room.is_projector == True %}
+                        Dostępny
+                    {% else %}
+                        Niedostępny
+                    {% endif %}
+                </td>
+                <td><a href="/room/modify/{{room.pk}}"><button class="table-button">Edytuj</button></a></td>
+                <td><a href="/room/delete/{{room.pk}}"><button class="table-button">Usuń</button></a></td>
+                <td><button class="table-button">Zarezerwuj</button></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</section>
+<footer>
+    <h3> Created by: Artur Waligóra</h3>
+    <h3><a href="ttps://github.com/arcziwal">Mój GitHub</a></h3>
+</footer>
+</body>
+</html>

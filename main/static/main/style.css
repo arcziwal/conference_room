@@ -1,0 +1,103 @@
+.menu {
+    margin: 20px 0;
+    padding: 0;
+    list-style: none;
+    background-color: #f1f1f1;
+}
+
+.menu li {
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    margin: 0;
+    display: inline-block;
+}
+
+.menu a{
+    display: block;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    font-size: 15px;
+}
+
+.menu a:hover {
+    background-color: #555;
+    color: white;
+}
+
+.banner {
+    text-align: center;
+    background-color: lightgrey;
+    margin-bottom: -20px;
+    padding-top: 100px;
+    margin-top: -10px;
+}
+
+.form-row {
+    display: block;
+    margin: 5px 0 15px;
+}
+
+.form-label {
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.submit-button {
+    padding: 5px 15px;
+    background: black;
+    border: 0 none;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.submit-button:hover {
+    background: #555;
+}
+
+.room-table {
+    background-color: lightgray;
+    padding: 10px;
+    border-spacing: 0;
+    border-collapse: separate;
+    width: 100%;
+}
+
+.room-table td, .room-table tr {
+    padding: 10px;
+}
+
+.room-table thead {
+    background-color: black;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.table-button {
+    background-color: #555555;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 8px;
+    border: 0;
+    margin-top: 20px;
+}
+
+.table-button:hover {
+    background-color: black;
+}
+
+footer {
+    background-color: lightgray;
+    text-align: center;
+}
+
+
+

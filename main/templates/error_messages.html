@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>TEMPLATE</title>
+    <meta name="description" content="Template for conference room reservation website">
+    <meta name="author" content="Artur Waligora">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/style.css' %}">
+</head>
+<body>
+<header>
+    <h1 class="banner">
+        Tutaj będzie baner nagłówka
+    </h1>
+    <nav>
+        <ul class="menu">
+            <li><a href="/">Strona główna</a></li>
+            <li><a href="/rooms">Lista sal</a> </li>
+            <li><a href="/room/new">Dodaj salę</a></li>
+        </ul>
+    </nav>
+</header>
+{% if is_name_filled == False %}
+    <h3>Aby dodać salę do bazy danych, należy podać jej nazwę</h3><br>
+    {% if type_of_operation == "add" %}
+    Kliknij <a href="/room/new/">tutaj</a>,aby powrócić do formularza
+    {% else %}
+    Kliknij <a href="/room/modify/{{room}}">tutaj</a>,aby powrócić do formularza
+    {% endif %}
+{% endif %}
+
+{% if is_in_db == True %}
+    <h3>Sala o takiej nazwie znajduje się już w bazie danych</h3><br>
+    {% if type_of_operation == "add" %}
+    Kliknij <a href="/room/new/">tutaj</a>,aby powrócić do formularza
+    {% else %}
+    Kliknij <a href="/room/modify/{{room}}">tutaj</a>,aby powrócić do formularza
+    {% endif %}
+{% endif %}
+
+{% if is_seats_filled == False %}
+<h3>Aby dodać salę do bazy danych, należy podać jej pojemność</h3><br>
+    {% if type_of_operation == "add" %}
+    Kliknij <a href="/room/new/">tutaj</a>,aby powrócić do formularza
+    {% else %}
+    Kliknij <a href="/room/modify/{{room}}">tutaj</a>,aby powrócić do formularza
+    {% endif %}
+{% endif %}
+
+{% if is_number == False %}
+<h3>Aby dodać salę do bazy danych, liczba miejsc musi być dodatnią liczbą niedziesiętną</h3><br>
+    {% if type_of_operation == "add" %}
+    Kliknij <a href="/room/new/">tutaj</a>,aby powrócić do formularza
+    {% else %}
+    Kliknij <a href="/room/modify/{{room}}">tutaj</a>,aby powrócić do formularza
+    {% endif %}
+{% endif %}
+
+{% if is_num_ok == False %}
+<h3>Aby dodać salę do bazy danych, liczba jej miejsc musi być większa od 0</h3><br>
+    {% if type_of_operation == "add" %}
+    Kliknij <a href="/room/new/">tutaj</a>,aby powrócić do formularza
+    {% else %}
+    Kliknij <a href="/room/modify/{{room}}">tutaj</a>,aby powrócić do formularza
+    {% endif %}
+{% endif %}
+
+<footer>
+    <h3> Created by: Artur Waligóra</h3>
+    <h3><a href="ttps://github.com/arcziwal">Mój GitHub</a></h3>
+</footer>
+</body>
+</html>

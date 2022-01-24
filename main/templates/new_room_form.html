@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Nowa sala konferencyjna</title>
+    <meta name="description" content="Template for conference room reservation website">
+    <meta name="author" content="Artur Waligora">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/style.css' %}">
+</head>
+<body>
+<header>
+    <h1 class="banner">
+        Tutaj będzie baner nagłówka
+    </h1>
+    <nav>
+        <ul class="menu">
+            <li><a href="/">Strona główna</a></li>
+            <li><a href="/rooms">Lista sal</a> </li>
+            <li><a href="/room/new">Dodaj salę</a></li>
+        </ul>
+    </nav>
+</header>
+<p><b>{{ modification_text }}</b></p>
+<section>
+    <form action="/room/{{return_address}}{{room.pk}}" method="POST">
+        {% csrf_token %}
+        <label class="form-label" for="name">Nazwa sali:</label>
+        <input class="form-row" type="text" name="name" id="name" value="{{room.name}}">
+        <label class="form-label" for="seats">Liczba miejsc:</label>
+        <input class="form-row" type="number" name="seats" id="seats" value="{{room.seats}}">
+        {% if room.is_projector %}
+        <label class="form-label" for="projector">Czy projektor jest dostępny?</label>
+        <input class="form-row" type="checkbox" name="projector" id="projector" checked>
+        {% else %}
+        <label class="form-label" for="projector2">Czy projektor jest dostępny?</label>
+        <input class="form-row" type="checkbox" name="projector" id="projector2">
+        {% endif %}
+        <button class="form-row submit-button" type="submit">Prześlij</button>
+    </form>
+</section>
+<footer>
+    <h3> Created by: Artur Waligóra</h3>
+    <h3><a href="ttps://github.com/arcziwal">Mój GitHub</a></h3>
+</footer>
+</body>
+</html>

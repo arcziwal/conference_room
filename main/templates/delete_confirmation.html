@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>TEMPLATE</title>
+    <meta name="description" content="Template for conference room reservation website">
+    <meta name="author" content="Artur Waligora">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/style.css' %}">
+</head>
+<body>
+<header>
+    <h1 class="banner">
+        Tutaj będzie baner nagłówka
+    </h1>
+    <nav>
+        <ul class="menu">
+            <li><a href="/">Strona główna</a></li>
+            <li><a href="/rooms">Lista sal</a> </li>
+            <li><a href="/room/new">Dodaj salę</a></li>
+        </ul>
+    </nav>
+</header>
+<div>
+    <p class="communicate">{{ output }}?</p>
+</div>
+<form class="form" action=/room/delete/{{room}} method="POST">
+    {% csrf_token %}
+    <input class="table-button" type="submit" value="tak" name="decision">
+    <input class="table-button" type="submit" value="nie" name="decision">
+</form>
+<footer>
+    <h3> Created by: Artur Waligóra</h3>
+    <h3><a href="ttps://github.com/arcziwal">Mój GitHub</a></h3>
+</footer>
+</body>
+</html>
